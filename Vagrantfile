@@ -8,6 +8,8 @@ Vagrant.configure('2') do |config|
   config.ssh.username         = 'debian'
   config.ssh.private_key_path = '~/.ssh/id_rsa'
   config.ssh.shell            = "bash"
+  config.ssh.forward_agent    = true
+
 
   config.vm.provider :openstack do |os|
     os.openstack_auth_url = 'http://openstack.brandwatch.com:5000/v2.0'

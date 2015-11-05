@@ -25,5 +25,8 @@ apt-get -y install puppet-agent unzip curl
 echo 'export PATH="/opt/puppetlabs/bin:/opt/puppetlabs/puppet/bin:$PATH"' > /etc/profile.d/Z69-puppet.sh
 source /etc/profile.d/Z69-puppet.sh
 
+# by default root account denies access for provisioners ssh key
+echo -n > /root/.ssh/authorized_keys
+
 puppet agent --test && \
   puppet agent --onetime --no-daemonize
